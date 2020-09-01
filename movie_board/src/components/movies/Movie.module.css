@@ -1,0 +1,84 @@
+.movieCard{
+    width: 400px;
+    background-color: #000000;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 40px 0;
+}
+.movieHead {
+    position: relative;
+    height: 544px;
+    overflow: hidden;
+}
+.movieHead img{
+    width: 100%;
+}
+.movieDescription{
+    position: absolute;
+    top : 464px;
+    height: 380px;
+    transition: 0.8s ease-in-out;
+}
+.bckgrndBlur{
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+    top:0
+}
+.textDescription{    
+    color: white;
+    position : relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.textDescription h3 {
+    font-size: 20px;
+    text-align: center;
+    margin: 26px 0;
+}
+.textDescription p{
+    padding :15px;
+}
+.textDescription a{
+    margin:15px;
+    padding: 15px;
+    border : 1px solid white;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s
+}
+.textDescription a:hover{
+    background-color: rgba(0,0,0,0.1);
+    box-shadow: inset 0 0 5px 1px white;
+    text-shadow: 0 0 5px white;
+}
+.movieHead:hover .movieDescription{
+    top: 164px;
+}
+.movieInformations{
+    color : white;
+    padding: 10px;
+}
+
+.movieController{
+   display : flex;
+   justify-content: space-between; 
+   flex-flow: row nowrap;
+}
+.movieController button{
+    padding : 10px;
+    width: 50%;
+}
+.btnBlue{
+    border : 1px solid #4A80FF;
+    border-bottom-left-radius: 10px;
+}
+.btnRed{
+    border : 1px solid #EB0000;
+    border-bottom-right-radius: 10px;
+}
