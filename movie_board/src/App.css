@@ -31,5 +31,6 @@
   width: 400px
 }
 .footer p{
-  margin: 0
+  margin: 10px 0 0 auto;
+  font-size: 14px;
 }

@@ -3,8 +3,20 @@ import styles from './Movie.module.css';
 
 const Movie = (props) => {
     const date = props.movie.release_date.split('-');
-    console.log(date)
-
+    const months = [
+        'janvier',
+        'février',
+        'mars',
+        'avril',
+        'mai',
+        'juin',
+        'juillet',
+        'août',
+        'septembre',
+        'octobre',
+        'novembre',
+        'décembre'
+    ];
     return (
         <div className={styles.movieCard}>
             <div className={styles.movieHead}>
@@ -19,8 +31,8 @@ const Movie = (props) => {
                 </div>
             </div>
             <div className={styles.movieInformations}>
-                <p>Date de sortie : <span className="day">{date[2]}</span> <span className="month">{date[1]}</span> <span className="year">{date[0]}</span></p>
-                <p>Genre : {props.movie.categories} </p>
+                <p>Date de sortie : <span className="day">{date[2]}</span> <span className="month">{months[parseInt(date[1])-1]}</span> <span className="year">{date[0]}</span></p>
+                <p>Genre : {props.movie.categories.join(', ')} </p>
             </div>
             <div className={styles.movieController}>
                 <button className={styles.btnBlue}>Modifier</button>
