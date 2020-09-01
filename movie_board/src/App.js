@@ -1,15 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import logo from './logoLBAF.svg';
 import logoTMDB from './logoTMBD.svg';
-import './App.css';
+import apiAxios from './apiAxios';
+import Movies from './components/movies/Movies.js';
+import'./App.css';
 
 function App() {
+  const [moviesdb, setMoviesdb] = useState([]);
+
+  useEffect(() => {
+        apiAxios.getData()
+            .then(res => {
+                setMoviesdb(res);
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
+    }, []);
+
   return (
     <div className="App">
       <header className="header">
         <img src={logo} alt="logo" />
       </header>
-      
+      <Movies movies={moviesdb}/>
       <footer className="footer">
         <div>
           <img src={logoTMDB} alt='logo TMBD'/>

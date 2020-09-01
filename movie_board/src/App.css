@@ -6,6 +6,11 @@
   align-items: center;
   justify-content: center;
 }
+.header img{
+  width: 400px;
+  display: block;
+  margin:auto; 
+}
 
 .footer {
   background-color: #000;

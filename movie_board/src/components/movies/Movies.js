@@ -1,12 +1,14 @@
 import React from 'react';
 import Movie from './Movie';
+import styles from './Movies.module.css';
 
-const Movies = props => {
+const Movies = (props) => {
     return (
-        <div className={styles.movies-list}>
+        <div className={styles.moviesList}>
             {props.movies.map((movie) => (
-                <Movie key={movie.id} ></Movie>
+                <Movie key={movie.id} movie={movie} ></Movie>
             ))}
         </div>
     )
 }
+export default Movies;
