@@ -1,24 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
+import logoTMDB from './logoTMBD.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="header">
+        <img src={logo} alt="logo" />
       </header>
+      
+      <footer className="footer">
+        <div>
+          <img src={logoTMDB} alt='logo TMBD'/>
+          <p>Copyright © 2010-2020 Gabin Fiquet All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }
