@@ -15,6 +15,7 @@
     justify-content: center;
     flex-wrap: nowrap;
     align-items: center;
+    box-shadow: 0 0 10px black;
 }
 .redBanner>div{
     width: 75%;
@@ -34,7 +35,7 @@
     border: none;
     border-bottom: 1px solid white;
     font-size: 20px;
-    margin: 0 15px;
+    margin: 5px 15px;
     color: white ;
     transition: 0.3s;    
     width: 150px;
@@ -89,3 +90,18 @@
     box-shadow: inset 0 0 5px 1px white;
     text-shadow: 0 0 5px white;
 }
+
+@media screen and (max-width: 640px){
+    .redBanner{
+        height: 250px;
+    }
+    .redBanner>div{
+        justify-content: center;
+    }
+    .redBanner form{
+        margin-bottom: 15px;
+    }
+    .redBanner form input{
+        width: 100%;
+    }
+  }

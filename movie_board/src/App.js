@@ -18,7 +18,6 @@ function App() {
         apiAxios.getData()
             .then(res => {
                 setMoviesdb(res);
-                console.log(res)
             })
             .catch(err => {
                 console.log(err.message)
@@ -36,7 +35,7 @@ function App() {
               <Movies movies={moviesdb}/>
             </Route>
             <Route path="/movie/:movieID">
-              <PageMovie />
+              <PageMovie/>
             </Route>
           </Switch>
         <footer className="footer">

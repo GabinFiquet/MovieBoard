@@ -1,0 +1,147 @@
+.container{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    color: white;
+    padding: 40px 0;
+}
+h2 {
+    width:100%;    
+    margin: 0 0 15px;
+    font-size: 23px;
+}
+.movieDetail{
+    background-color: #1a1a1a;
+}
+.redBanner{
+    width: 100%;
+    height: 100px;
+    background: rgb(204,0,38);
+    background: linear-gradient(180deg, rgba(204,0,38,1) 0%, rgba(102,0,19,1) 100%);
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    box-shadow: 0 0 10px black;
+}
+.redBanner .container{
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+}
+.redBanner a{
+    border: 1px solid white;
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    width: 35px;
+    height: 35px;
+    transform: scaleX(-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left:0;
+  }
+.redBanner a:hover, .redBanner a:focus{
+    background-color: #ffffff1a;
+    box-shadow: inset 0 0 5px 1px white;
+    text-shadow: 0 0 5px white;
+  }
+  .redBanner h1{      
+    font-size: 30px;
+    text-align: center;
+  }
+.movieInformation{
+    margin: 40px 0;
+}
+.movieInformation figcaption{
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: black;
+}
+.movieInformation figcaption img{
+    width:100%
+}
+.movieInformation article{
+    width: 500px;
+    margin-left: 60px;
+    font-size: 20px
+}
+
+.movieCasting{
+    background: rgb(204,0,38);
+    background: linear-gradient(180deg, rgba(204,0,38,1) 0%, rgba(102,0,19,1) 100%);
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    box-shadow: 0 0 10px black;
+}
+.movieCasting .container{
+    justify-content: space-around;
+}
+
+.movieRelated .container{
+    justify-content: space-around;
+}
+
+.movieController{
+    display : flex;
+    justify-content: space-between; 
+    flex-flow: row nowrap;
+ }
+ .movieController button{
+     padding : 15px;
+     width: 50%;
+     box-sizing: border-box;
+     background-color: transparent;    
+     font-size: 16px;
+ }
+ .btnBlue{
+     border : 2px solid #4A80FF;
+     border-bottom-left-radius: 12px;
+     color: #4A80FF;
+     transition: 0.3s
+ }
+ .btnBlue:hover, .btnBlue:focus{
+     background-color: #4A80FF1a;
+     box-shadow: inset 0 0 5px 1px #4A80FF;
+     text-shadow: 0 0 5px #4A80FF;
+ }
+ .btnRed{
+     border : 2px solid #EB0000;
+     border-bottom-right-radius: 12px;
+     color: #EB0000;
+     transition: 0.3s;
+ }
+ .btnRed:hover, .btnRed:focus{
+     background-color: #EB00001a;
+     box-shadow: inset 0 0 5px 1px #EB0000;
+     text-shadow: 0 0 5px #EB0000;
+ }
+
+ @media screen and (max-width: 640px){
+    .container{
+        width:90%;
+    }
+    .redBanner .container{
+        width:70%;
+        position: unset;
+    }
+    .redBanner h1{
+        font-size: 25px;
+    }
+    .redBanner a{
+        margin-left: 10px;
+    }
+    .movieInformation{
+        margin: 0;
+    }
+    .movieInformation article{
+        margin-left: 0;
+        margin-top: 20px;
+    }
+  }

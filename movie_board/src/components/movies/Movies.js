@@ -8,8 +8,8 @@ import styles from './Movies.module.css';
 
 const Movies = (props) => {
     return (
-        <div className={styles.moviesList}>
-            <div className={styles.redBanner}>
+        <main className={styles.moviesList}>
+            <section className={styles.redBanner}>
                 <div>
                     <form>
                         <input type="text" name="title"  placeholder="Titre" autoFocus/> 
@@ -19,11 +19,11 @@ const Movies = (props) => {
                     </form>
                     <a href='#'>Ajouter un film</a>
                 </div>
-            </div>
+            </section>
             {props.movies.map((movie) => (
                 <Movie key={movie.id} movie={movie} ></Movie>
             ))}
-        </div>
+        </main>
     )
 }
 export default Movies;

@@ -20,27 +20,27 @@ const Movie = (props) => {
     const alt = 'Affiche du film ' + props.movie.title;
     const href = '/Movie/' + props.movie.id;
     return (
-        <div className={styles.movieCard}>
-            <div className={styles.movieHead}>
+        <article className={styles.movieCard}>
+            <figcaption className={styles.movieHead}>
                 <img src={props.movie.poster} alt={alt}></img>                
-                <div className={styles.movieDescription}>
+                <article className={styles.movieDescription}>
                     <div className={styles.bckgrndBlur}></div>
                     <div className={styles.textDescription}>
-                        <h3>Titre : {props.movie.title}</h3>
+                        <h3>{props.movie.title}</h3>
                         <p>{props.movie.description}</p>
                         <a href={href}>En savoir plus</a>
                     </div>                    
-                </div>
-            </div>
-            <div className={styles.movieInformations}>
+                </article>
+            </figcaption>
+            <article className={styles.movieInformations}>
                 <p>Date de sortie : <span>{date[2]}</span> <span >{months[parseInt(date[1])-1]}</span> <span>{date[0]}</span></p>
                 <p>Genres : {props.movie.categories.join(', ')} </p>
-            </div>
+            </article>
             <div className={styles.movieController}>
                 <button className={styles.btnBlue}>Modifier</button>
                 <button className={styles.btnRed}>Supprimer</button>
             </div>
-        </div>
+        </article>
     )
 }
 export default Movie;
