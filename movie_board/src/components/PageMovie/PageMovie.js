@@ -53,7 +53,7 @@ const PageMovie = () => {
             <>
             <section className={styles.redBanner}>               
                 <div className={styles.container}>
-                    <a href='javascript:history.back()'><FontAwesomeIcon icon={faShare} /></a>
+                    <a href='/'><FontAwesomeIcon icon={faShare} /></a>
                     <h1>{movieDetail.title}</h1>
                 </div>
             </section>

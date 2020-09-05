@@ -17,7 +17,7 @@
     align-items: center;
     box-shadow: 0 0 10px black;
 }
-.redBanner>div{
+.redBanner .container{
     width: 75%;
     margin: auto;
     display: flex;
@@ -95,7 +95,7 @@
     .redBanner{
         height: 250px;
     }
-    .redBanner>div{
+    .redBanner .container{
         justify-content: center;
     }
     .redBanner form{

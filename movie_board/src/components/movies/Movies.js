@@ -10,14 +10,14 @@ const Movies = (props) => {
     return (
         <main className={styles.moviesList}>
             <section className={styles.redBanner}>
-                <div>
+                <div className={styles.container}>
                     <form>
                         <input type="text" name="title"  placeholder="Titre" autoFocus/> 
                         <input type="date" name="date"  autoFocus/>
                         <input type="text" name="categories"  placeholder="Genre" autoFocus/>
                         <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
                     </form>
-                    <a href='#'>Ajouter un film</a>
+                    <a href='/add-movie'>Ajouter un film</a>
                 </div>
             </section>
             {props.movies.map((movie) => (
