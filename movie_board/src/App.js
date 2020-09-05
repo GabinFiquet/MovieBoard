@@ -4,12 +4,13 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import apiAxios from './apiAxios';
 
 import Movies from './components/movies/Movies.js';
+import PageMovie from './components/PageMovie/PageMovie';
+import AddMovie from './components/AddMovie/AddMovie';
 
 import'./App.css';
 
 import logo from './logoLBAF.svg';
 import logoTMDB from './logoTMBD.svg';
-import PageMovie from './components/PageMovie/PageMovie';
 
 function App() {
   const [moviesdb, setMoviesdb] = useState([]);
@@ -36,6 +37,9 @@ function App() {
             </Route>
             <Route path="/movie/:movieID">
               <PageMovie/>
+            </Route>
+            <Route path="/add-movie">
+              <AddMovie/>
             </Route>
           </Switch>
         <footer className="footer">
