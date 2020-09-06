@@ -62,7 +62,6 @@ const PageMovie = (props) => {
                     <figcaption>
                         <img src={movieDetail.poster} alt={alt}></img>
                         <div className={styles.movieController}>
-                            <button className={styles.btnBlue}>Modifier</button>
                             <button className={styles.btnRed} onClick={(e) => props.deleteMovie(e,movieDetail.id)}>Supprimer</button>
                         </div>
                     </figcaption>

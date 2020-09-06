@@ -55,7 +55,6 @@ const AddMovie = () => {
                         <a href='/'><FontAwesomeIcon icon={faShare} /></a>
                         <form  action="" onSubmit={onSubmitForm}>
                                 <input type="text" name="titleSearch"  placeholder="Titre" value={formData.titleSearch} onChange={onUpdateData} autoFocus/> 
-                                <input type="date" name="date"  value={formData.date} onChange={onUpdateData} autoFocus/>
                                 <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
                         </form>
                     </div>                    

@@ -18,7 +18,7 @@ const Related = (props) => {
         'novembre',
         'décembre'
     ];
-    const alt = 'Affiche du film ' + props.related.title;
+    const alt = `Affiche du film ${props.related.title}`;
 
 return (
     <article className={styles.movieCard}>

@@ -95,27 +95,19 @@ h2 {
  }
  .movieController button{
      padding : 15px;
-     width: 50%;
+     width: 100%;
      box-sizing: border-box;
      background-color: transparent;    
      font-size: 16px;
  }
- .btnBlue{
-     border : 2px solid #4A80FF;
-     border-bottom-left-radius: 12px;
-     color: #4A80FF;
-     transition: 0.3s
- }
- .btnBlue:hover, .btnBlue:focus{
-     background-color: #4A80FF1a;
-     box-shadow: inset 0 0 5px 1px #4A80FF;
-     text-shadow: 0 0 5px #4A80FF;
- }
  .btnRed{
      border : 2px solid #EB0000;
      border-bottom-right-radius: 12px;
+     border-bottom-left-radius: 12px;
      color: #EB0000;
      transition: 0.3s;
+     text-align: center;
+     text-decoration: none;
  }
  .btnRed:hover, .btnRed:focus{
      background-color: #EB00001a;

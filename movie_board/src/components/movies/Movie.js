@@ -37,7 +37,6 @@ const Movie = (props) => {
                 <p>Genres : {props.movie.categories.join(', ')} </p>
             </article>
             <div className={styles.movieController}>
-                <button className={styles.btnBlue}>Modifier</button>
                 <button className={styles.btnRed} onClick={(e) => props.deleteMovie(e,props.movie.id)}>Supprimer</button>
             </div>
         </article>

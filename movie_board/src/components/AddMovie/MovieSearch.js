@@ -19,8 +19,8 @@ const MovieSearch = (props) => {
         'novembre',
         'décembre'
     ];        
-    const alt = 'Affiche du film ' + props.movieSearch.title;
-    const srcPoster = 'https://image.tmdb.org/t/p/w342' + props.movieSearch.poster_path;
+    const alt = `Affiche du film ${props.movieSearch.title}`;
+    const srcPoster = `https://image.tmdb.org/t/p/w342${props.movieSearch.poster_path}`;
         
     const [addMovieDetail, setAddMovieDetail] = useState([
         {
@@ -95,8 +95,7 @@ const MovieSearch = (props) => {
             data: addMovieDetail
         })
         .then (res => {
-            console.log(res);
-            console.log(res.data);
+          window.location.replace('/')
         })
     }
    
