@@ -10,6 +10,7 @@ import Related from './Related';
 import styles from './PageMovie.module.css';
 
 const PageMovie = (props) => {
+// Mise en forme des données
     const { movieID } = useParams();
     const [movieDetail, setMovieDetail] = useState(null);
     const months = [
@@ -30,7 +31,8 @@ const PageMovie = (props) => {
     let date = [];
     let alt = '';
     let genres = '';
-    
+
+// Recupération du films dans movie-board-server grâce a son ID
     useEffect(() => {
         apiAxios.getMovie(movieID)
           .then(res => {
@@ -43,10 +45,11 @@ const PageMovie = (props) => {
 
     if (movieDetail !== null){
          date = movieDetail.release_date.split('-');
-         alt = 'Affiche du film ' + movieDetail.title;
+         alt = `Affiche du film${movieDetail.title}`;
          genres = movieDetail.categories.join(', ');
     }
-    
+// Rendu De la page détail d'un film 
+// Envoye de données pour le rendu des acteur et des film similaire
     return (
         <main className={styles.movieDetail}>
             {movieDetail !== null && 

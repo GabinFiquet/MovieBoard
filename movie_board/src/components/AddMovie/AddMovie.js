@@ -15,9 +15,8 @@ const AddMovie = () => {
     const [movieList, setMoviesList] = useState([]);
     const [formData, setFormData] = useState({
 		titleSearch: '',
-		date: '',
     });
-    
+// Fonction qui recupere la valeur dans le champ titre pour la recherche
     const onUpdateData = (event) => {
 		const target = event.target,
 			name = target.name,
@@ -27,12 +26,7 @@ const AddMovie = () => {
 		    data[name] = value;
 		    setFormData(data);
 	};
-
-	const onSubmitForm = (event) => {
-        event.preventDefault();         
-		console.log(formData); 
-    };
-
+// Recupération des données à partir des 4 premier caractères entrée
     useEffect(() => {
         if (formData.titleSearch.length > 3){
         apiTMBD.getMovieList(formData.titleSearch)
@@ -41,19 +35,21 @@ const AddMovie = () => {
                     setMoviesList(res.results);
                 }
                 else {
-                    console.log('Ya R')
+                    console.log('Il y a rien')
                 }
             })
             .catch(err => {
                 console.log(err.message)
             })
     }}, [formData.titleSearch]);
+// Rendu de la page add-movie avec un tableau des film trouvé
+// Envoi des données pour chaque film trouvé vers MovieSearch qui gère le rendu de chaque film
     return (
         <main>
             <section className={styles.redBanner}>               
                     <div className={styles.container}>
                         <a href='/'><FontAwesomeIcon icon={faShare} /></a>
-                        <form  action="" onSubmit={onSubmitForm}>
+                        <form  action="">
                                 <input type="text" name="titleSearch"  placeholder="Titre" value={formData.titleSearch} onChange={onUpdateData} autoFocus/> 
                                 <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
                         </form>

@@ -1,3 +1,4 @@
+/* Style du bandeau rouge */
 .redBanner{
     width: 100%;
     height: 100px;
@@ -17,6 +18,7 @@
     flex-flow: row wrap;
     position:relative;
 }
+/* Style du bouton de retour */
 .redBanner a{
     border: 1px solid white;
     color: white;
@@ -36,12 +38,14 @@
     box-shadow: inset 0 0 5px 1px white;
     text-shadow: 0 0 5px white;
   }
+/* Style du formulaire de recherche */
 .redBanner form{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
 }
+/* Style de l'input de recherhce */
 .redBanner form input{
     background: transparent;
     border: none;
@@ -56,10 +60,12 @@
     color: white;
     opacity: 1;
 }
-.redBanner form input[type="date"]::-webkit-calendar-picker-indicator{
-    background: none;
-    padding: 0;
-  }
+.redBanner form input:focus{
+    border: none;
+    border-bottom: 2px solid white;
+    outline: none;
+}
+/* Style du bouton de recherche */
 .redBanner form button{
     border: 1px solid white;
     background: transparent;
@@ -69,11 +75,6 @@
     width: 35px;
     height: 35px;
   }
-.redBanner form input:focus{
-    border: none;
-    border-bottom: 2px solid white;
-    outline: none;
-}
 .redBanner form button:hover{
     cursor: pointer;
     background-color: #ffffff1a;
@@ -86,6 +87,7 @@
     box-shadow: inset 0 0 5px 1px white;
     text-shadow: 0 0 5px white;
 }
+/* Style de section des films trouvé par la recherche*/
 .movieList{
     background-color: #1a1a1a;
     min-height: calc(100vh - 390px);
@@ -93,7 +95,7 @@
     flex-flow: row wrap;
     justify-content: space-around;
 }
-
+/* Ajustement pour la version mobile */
 @media screen and (max-width: 640px){
     .redBanner{
         height: 250px;

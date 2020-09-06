@@ -16,6 +16,7 @@ import logoTMDB from './logoTMBD.svg';
 function App() {
   const [moviesdb, setMoviesdb] = useState([]);
 
+// Recupération des films dans movie-board-server
   useEffect(() => {
         apiAxios.getData()
             .then(res => {
@@ -25,7 +26,7 @@ function App() {
                 console.log(err.message)
             })
     }, []);
-
+//Fonction de suppréssion d'un film sur la base de données movie-board-server
     const deleteMovie = (event, movieID) => {
       event.preventDefault()
         axios({
@@ -37,6 +38,9 @@ function App() {
           console.log(err.message)
         })
     }
+// Rendu de la page d'accueil
+// Envoie  de la fonction de suppression d'un film à la page de détail d'un film et au rendu des films
+// Routage pour avoir plusieur page
   return (
     <BrowserRouter>
       <div className="App">

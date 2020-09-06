@@ -1,3 +1,4 @@
+/* Style des carte de film */
 .movieCard{
     width: 340px;
     background-color: #000000;
@@ -5,6 +6,7 @@
     overflow: hidden;
     margin: 40px 0;
 }
+/* Style de l'entête de la carte de film */
 .movieHead {
     position: relative;
     overflow: hidden;
@@ -12,6 +14,7 @@
 .movieHead img{
     width: 100%;
 }
+/* Style du titre du film */
 .movieDescription{
     position: absolute;    
     bottom: 0;
@@ -39,12 +42,13 @@
     text-align: center;
     margin: 26px 0;
 }
+/* Style des informations des films */
 .movieInformations{
     color : white;
     padding: 10px;
     font-size: 18px;
 }
-
+/* Ajustement pour la version mobile */
 @media screen and (max-width: 640px){
     .movieCard{
         margin: 20px 0;

@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './Movie.module.css';
 
-const Movie = (props) => {
+const Movie = (props) => { 
+// Mise en forme des données
     const date = props.movie.release_date.split('-');
     const months = [
         'janvier',
@@ -19,6 +20,7 @@ const Movie = (props) => {
     ];
     const alt = 'Affiche du film ' + props.movie.title;
     const href = '/Movie/' + props.movie.id;
+// Rendu d'une carte de film présent dans notre base de données movie-board-server
     return (
         <article className={styles.movieCard}>
             <figcaption className={styles.movieHead}>

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Related.module.css';
 
 const Related = (props) => {
+// Mise en forme des données
     console.log(props)
     const date = props.related.release_date.split('-');
     const months = [
@@ -20,6 +21,7 @@ const Related = (props) => {
     ];
     const alt = `Affiche du film ${props.related.title}`;
 
+// Rendu de la section des films similaire du film
 return (
     <article className={styles.movieCard}>
             <figcaption className={styles.movieHead}>

@@ -4,6 +4,7 @@ import apiTMBD from '../../apiTMDB';
 import axios from 'axios';
 
 const MovieSearch = (props) => {
+// Mise en forme des données
     const date = props.movieSearch.release_date.split('-');
     const months = [
         'janvier',
@@ -35,8 +36,9 @@ const MovieSearch = (props) => {
         }
     ]);
 
-
-    useEffect(() => {        
+// Recupération des données de l'API TMDB avec trois requete de recherche
+    useEffect(() => { 
+        // premiere requete : recherche du film par ID        
         apiTMBD.getMovie(props.movieSearch.id)
             .then(res => {               
                 let genresMovie = [];
@@ -45,6 +47,8 @@ const MovieSearch = (props) => {
                 }
                                 
                 let movieActors = []
+                
+                // deuxieme requete : recherche du film par ID pour récuperer juste les acteurs
                 apiTMBD.getCredit(props.movieSearch.id)
                     .then(res => {
                         res.cast.splice(0,6).map(actor => {
@@ -59,6 +63,7 @@ const MovieSearch = (props) => {
                         console.log(err.message)
                     })
                 let movieRelated = []
+                // deuxieme requete : recherche du film par ID pour récuperer juste les flims similaire
                 apiTMBD.getRelated(props.movieSearch.id)
                     .then(res => {
                         res.results.splice(0,3).map(related => {
@@ -88,6 +93,7 @@ const MovieSearch = (props) => {
                 console.log(err.message)
             })
     }, []);
+// Fonction d'ajout d'un film à notre base movie-board-server
     const AddThisMovie = (event) => {
         axios({
             method: 'post',
@@ -98,7 +104,7 @@ const MovieSearch = (props) => {
           window.location.replace('/')
         })
     }
-   
+// Rendu d'une carte de film trouvé grace à la recherche
     return (
         <article className={styles.movieCard}>            
             <figcaption className={styles.movieHead}>
