@@ -9,7 +9,7 @@ import Actor from './Actor';
 import Related from './Related';
 import styles from './PageMovie.module.css';
 
-const PageMovie = () => {
+const PageMovie = (props) => {
     const { movieID } = useParams();
     const [movieDetail, setMovieDetail] = useState(null);
     const months = [
@@ -63,7 +63,7 @@ const PageMovie = () => {
                         <img src={movieDetail.poster} alt={alt}></img>
                         <div className={styles.movieController}>
                             <button className={styles.btnBlue}>Modifier</button>
-                            <button className={styles.btnRed}>Supprimer</button>
+                            <button className={styles.btnRed} onClick={(e) => props.deleteMovie(e,movieDetail.id)}>Supprimer</button>
                         </div>
                     </figcaption>
                     <article>  

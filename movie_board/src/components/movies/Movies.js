@@ -21,7 +21,7 @@ const Movies = (props) => {
                 </div>
             </section>
             {props.movies.map((movie) => (
-                <Movie key={movie.id} movie={movie} ></Movie>
+                <Movie key={movie.id} movie={movie} deleteMovie={props.deleteMovie}></Movie>
             ))}
         </main>
     )

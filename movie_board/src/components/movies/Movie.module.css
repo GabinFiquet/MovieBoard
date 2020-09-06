@@ -41,7 +41,9 @@
     margin: 26px 0;
 }
 .textDescription p{
-    padding :15px;
+    padding :15px;    
+    max-height: 150px;
+    overflow: hidden;
 }
 .textDescription a{
     margin:15px;

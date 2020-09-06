@@ -38,7 +38,7 @@ const Movie = (props) => {
             </article>
             <div className={styles.movieController}>
                 <button className={styles.btnBlue}>Modifier</button>
-                <button className={styles.btnRed}>Supprimer</button>
+                <button className={styles.btnRed} onClick={(e) => props.deleteMovie(e,props.movie.id)}>Supprimer</button>
             </div>
         </article>
     )

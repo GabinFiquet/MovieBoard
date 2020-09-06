@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import apiAxios from './apiAxios';
+import axios from 'axios';
 
 import Movies from './components/movies/Movies.js';
 import PageMovie from './components/PageMovie/PageMovie';
@@ -25,6 +26,17 @@ function App() {
             })
     }, []);
 
+    const deleteMovie = (event, movieID) => {
+      event.preventDefault()
+        axios({
+          method: 'delete',
+          url: `http://localhost:3000/movies/${movieID}`,
+        }).then(res => {
+          window.location.replace('/')
+        }).catch(err => {
+          console.log(err.message)
+        })
+    }
   return (
     <BrowserRouter>
       <div className="App">
@@ -33,10 +45,10 @@ function App() {
         </header>
         <Switch>
             <Route exact path="/">
-              <Movies movies={moviesdb}/>
+              <Movies movies={moviesdb} deleteMovie={deleteMovie}/>
             </Route>
             <Route path="/movie/:movieID">
-              <PageMovie/>
+              <PageMovie deleteMovie={deleteMovie}/>
             </Route>
             <Route path="/add-movie">
               <AddMovie/>
