@@ -14,7 +14,9 @@ const apiAxios = {
     },
     getMovie: async (movieID) => {
         return instance.get("http://localhost:3000/movies/"+ movieID).then((r) => {return r.data});
+    },
+    postMovie: async (movieDetail) => {
+        return axios.post("http://localhost:3000/movies", movieDetail).then((r) => {return r}).catch(function (error) {console.log(error);})
     }
 }
-
 export default apiAxios;

@@ -13,6 +13,12 @@ const apiTMBD = {
     },
     getMovie: async (movieID) => {
         return instance.get("/movie/" + movieID + "?api_key=ad31b5e2c25101360f1a62dad5d2d4ad&language=fr-FR").then((r) => {return r.data});
+    },
+    getCredit: async (movieID) => {
+        return instance.get("/movie/" + movieID + "/credits?api_key=ad31b5e2c25101360f1a62dad5d2d4ad").then((r) => {return r.data});
+    },
+    getRelated: async (movieID) => {
+        return instance.get("/movie/" + movieID + "/similar?api_key=ad31b5e2c25101360f1a62dad5d2d4ad&language=fr-FR&page=1").then((r) => {return r.data});
     }
 }
 

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './MovieSearch.module.css';
+import apiTMBD from '../../apiTMDB';
+import axios from 'axios';
 
 const MovieSearch = (props) => {
     const date = props.movieSearch.release_date.split('-');
@@ -16,17 +18,90 @@ const MovieSearch = (props) => {
         'octobre',
         'novembre',
         'décembre'
-    ];
-
-    
+    ];        
     const alt = 'Affiche du film ' + props.movieSearch.title;
-    const href = '/Movie/' + props.movieSearch.id;
     const srcPoster = 'https://image.tmdb.org/t/p/w342' + props.movieSearch.poster_path;
+        
+    const [addMovieDetail, setAddMovieDetail] = useState([
+        {
+            title: '',
+            release_date: '',
+            categories: [],
+            description: '',
+            poster: '',
+            backdrop: '',
+            actors: [{}],
+            similar_movies: [{}],
+        }
+    ]);
 
-    
+
+    useEffect(() => {        
+        apiTMBD.getMovie(props.movieSearch.id)
+            .then(res => {               
+                let genresMovie = [];
+                for (let h=0; h < res.genres.length; h++){
+                    genresMovie.push(res.genres[h].name)
+                }
+                                
+                let movieActors = []
+                apiTMBD.getCredit(props.movieSearch.id)
+                    .then(res => {
+                        res.cast.splice(0,6).map(actor => {
+                            movieActors.push({
+                                name: actor.name,
+                                photo: `https://image.tmdb.org/t/p/w342${actor.profile_path}`,
+                                character: actor.character
+                            })
+                        })                     
+                    })
+                    .catch(err => {
+                        console.log(err.message)
+                    })
+                let movieRelated = []
+                apiTMBD.getRelated(props.movieSearch.id)
+                    .then(res => {
+                        res.results.splice(0,3).map(related => {
+                            movieRelated.push({
+                                title: related.title,
+                                poster: `https://image.tmdb.org/t/p/w342${related.poster_path}`,
+                                release_date: related.release_date
+                            })
+                        })
+                    })
+                    .catch(err => {
+                        console.log(err.message)
+                    })
+
+                setAddMovieDetail({
+                    title : res.title,
+                    release_date : res.release_date,
+                    description: res.overview,
+                    poster : 'https://image.tmdb.org/t/p/w342' + res.poster_path,
+                    backdrop : 'https://image.tmdb.org/t/p/w342' + res.backdrop_path,
+                    categories : genresMovie,
+                    actors : movieActors,
+                    similar_movies : movieRelated,
+                })
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
+    }, []);
+    const AddThisMovie = (event) => {
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/movies',
+            data: addMovieDetail
+        })
+        .then (res => {
+            console.log(res);
+            console.log(res.data);
+        })
+    }
+   
     return (
-        <article className={styles.movieCard}>
-            
+        <article className={styles.movieCard}>            
             <figcaption className={styles.movieHead}>
                 <img src={srcPoster} alt={alt}></img>                
                 <article className={styles.movieDescription}>
@@ -40,7 +115,7 @@ const MovieSearch = (props) => {
                 <p>Date de sortie : <span>{date[2]}</span> <span >{months[parseInt(date[1])-1]}</span> <span>{date[0]}</span></p>
             </article>
             <div className={styles.movieController}>
-                <a className={styles.btnGreen} href={href}>Ajouter</a>
+                <a className={styles.btnGreen} onClick={AddThisMovie} >Ajouter</a>
             </div>            
         </article>
     )
